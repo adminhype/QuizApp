@@ -86,14 +86,14 @@ function showQuestion() {
 };
 // herausfinden beim clicken auf button richtig oder falsch 
 // function wird aufgerufen wenn eine antwort ausgewählt wurde der parameter ist die id der angeklickten antwort
-function answer(selectionAnswer) {
+function answer(selection) {
 
     // aus dem array questions holen wir die aktuelle frage mit dem index currentquestion
     let question = questions[currentQuestion];
     // loggen die aktuelle auswahl aus
-    console.log('antwort', selectionAnswer);
+    console.log('antwort', selection);
     //wir schneiden den letzten buchstaben/zahl aus dem string raus z.B answer_2 wird 2
-    let selectedQuestionNumber = selectionAnswer.slice(-1);
+    let selectedQuestionNumber = selection.slice(-1);
     // loggen z.B 2 aus 
     console.log('ausgewählte antwort ist ', selectedQuestionNumber);
     // loggen aus welche antwort laut frage richtig wäre
@@ -103,10 +103,15 @@ function answer(selectionAnswer) {
     if (selectedQuestionNumber == question['right_answer']) {
         // loggen aus wenn die antwort übereinstimmt
         console.log('Richtige Antwort!');
+
+        // button wird grün wenn die antwort richtig ist / selber parameter
+        // css classe hinzufügen mit classList.add mit string
+        document.getElementById(selection).classList.add('bg-success');
         // wenn nicht 
     } else {
         console.log('Falsche Antwort');
-
+        // button wird rot wenn die antwort falsch ist /
+        document.getElementById(selection).classList.add('bg-danger')
     }
 
 };
