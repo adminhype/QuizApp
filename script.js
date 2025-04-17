@@ -127,3 +127,31 @@ function answer(selection) {
     // button disable aktivieren
     document.getElementById('next-btn').disabled = false;
 };
+
+function nextQuestion() {
+
+    // variable wird um 1 erhöht z.B 0 auf 1
+    currentQuestion++;
+
+    // step1 button wieder disablen
+    document.getElementById('next-btn').disabled = true;
+    resetBtns();
+
+    // function aufrufen 
+    showQuestion();
+};
+
+function resetBtns() {
+    // step 2 bereits ausgewählte antworten wieder entfernen
+    document.getElementById('answer_1').classList.remove('bg-danger');
+    document.getElementById('answer_1').classList.remove('bg-success');
+
+    document.getElementById('answer_2').classList.remove('bg-danger');
+    document.getElementById('answer_2').classList.remove('bg-success');
+
+    document.getElementById('answer_3').classList.remove('bg-danger');
+    document.getElementById('answer_3').classList.remove('bg-success');
+
+    document.getElementById('answer_4').classList.remove('bg-danger');
+    document.getElementById('answer_4').classList.remove('bg-success');
+}
