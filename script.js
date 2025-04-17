@@ -64,6 +64,7 @@ let currentQuestion = 0;
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
 
+
     //funktion wird ausgeführt
     showQuestion();
 };
@@ -139,6 +140,11 @@ function nextQuestion() {
 
     // function aufrufen 
     showQuestion();
+
+    // step nummer der fragen anzeigen
+
+    // step 1
+    document.getElementById('current-question').innerHTML = currentQuestion + 1;
 };
 
 function resetBtns() {
