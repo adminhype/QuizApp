@@ -99,6 +99,13 @@ function answer(selection) {
     // loggen aus welche antwort laut frage richtig wäre
     console.log('korrekte antwort', question['right_answer']);
 
+
+    //bei falscher antwort richtige antwort grün makieren
+
+    // template literal hinzufügen um auf question['right_answer] den wert zu greifen im objekt question 
+    // antwort z.b answer_2 (wird in selection beschrieben)
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
+
     //vergleichen ob die antwort übereinstimmmt
     if (selectedQuestionNumber == question['right_answer']) {
         // loggen aus wenn die antwort übereinstimmt
@@ -112,6 +119,10 @@ function answer(selection) {
         console.log('Falsche Antwort');
         // button wird rot wenn die antwort falsch ist /
         document.getElementById(selection).classList.add('bg-danger')
+
+        // falls falsche antwort ausgabe grün makriert für richtige anwort weil zuvor falsche antwort
+        document.getElementById(idOfRightAnswer).classList.add('bg-success')
+
     }
 
 };
