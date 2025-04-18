@@ -58,3 +58,8 @@ body {
     font-size: 32px;
     margin-bottom: 32px;
 }
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

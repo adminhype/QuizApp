@@ -51,8 +51,17 @@
                     <div class="text-center styling-headline">Quit beendet</div>
 
                     <div class="text-center">
-                        Du hast <b id="currentRightQuestion">xx</b> fragen von
-                        <b id="amountOfQuestions">yy</b> richig beantwortet
+                        Du hast <b id="currentRightQuestion"></b> fragen von
+                        <b id="amountOfQuestions"></b> richig beantwortet
+                    </div>
+
+                    <div class="button-row">
+                        <button
+                            onclick="restartGame()"
+                            class="btn btn-outline-secondary"
+                        >
+                            Neu Start
+                        </button>
                     </div>
                 </div>
 
@@ -100,6 +109,7 @@
                             <b id="all-questions">7</b> Fragen
                         </span>
                         <!-- button wird deaktiviert -->
+
                         <button
                             onclick="nextQuestion()"
                             class="btn btn-outline-secondary"

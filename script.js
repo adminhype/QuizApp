@@ -57,15 +57,15 @@ const questions = [
     }
 ];
 
-// zeigt den ersten objekt im array
+// zeigt den ersten objekt im array erhöht wenn die richtige frage ausgwählt haben
 let currentQuestion = 0;
 
+// erhöht antwort um 1
 let rightQuestions = 0;
 
 // funktion erstellt zum inititalisieren b tag id all-question zugegriffen + die länge des arrays angegeben
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
-
 
     //funktion wird ausgeführt
     showQuestion();
@@ -105,10 +105,6 @@ function showQuestion() {
         // progresbar balken schicker ausehenlassen mit % 
         document.getElementById('progress-bar-id').style = `width: ${percent}%`;
 
-
-
-
-
         //greift auf die aktuelle frage aus dem array 
         let question = questions[currentQuestion];
 
@@ -121,6 +117,11 @@ function showQuestion() {
         document.getElementById('answer_2').innerHTML = question['answer_2']
         document.getElementById('answer_3').innerHTML = question['answer_3']
         document.getElementById('answer_4').innerHTML = question['answer_4']
+
+        // step nummer der fragen anzeigen
+
+        // step 1
+        document.getElementById('current-question').innerHTML = currentQuestion + 1;
     }
 
 
@@ -185,10 +186,7 @@ function nextQuestion() {
     // function aufrufen 
     showQuestion();
 
-    // step nummer der fragen anzeigen
 
-    // step 1
-    document.getElementById('current-question').innerHTML = currentQuestion + 1;
 };
 
 function resetBtns() {
@@ -204,4 +202,26 @@ function resetBtns() {
 
     document.getElementById('answer_4').classList.remove('bg-danger');
     document.getElementById('answer_4').classList.remove('bg-success');
+}
+
+function restartGame() {
+    // img zurücksetzen um wieder von anfang anzufangen
+    document.getElementById('head-content-img').src = 'img/quiz.jpg';
+
+    // questionbody wieder anzeigen
+    document.getElementById('questionBody').style = '';
+    // end screen ausblenden
+    document.getElementById('endScreen').style = 'display: none';
+
+
+
+    // erhöht wenn die richtige frage ausgwählt haben
+    // alten wert überschreiben
+    currentQuestion = 0;
+
+    // alten wert überschreiben
+    // erhöht antwort um 1
+    rightQuestions = 0;
+
+    init();
 }
