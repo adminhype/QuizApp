@@ -165,7 +165,7 @@ function answer(selection) {
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     //vergleichen ob die antwort übereinstimmmt
-    if (rightAnswerSelected(selectedQuestionNumber)) {
+    if (selectedQuestionNumber == question[`right_answer`]) {
         // loggen aus wenn die antwort übereinstimmt
         // console.log('Richtige Antwort!');
 
@@ -178,7 +178,7 @@ function answer(selection) {
         SUCCES_AUDIO.play();
 
         // wenn right answer true ist erhöhen wir currentrightquestion um 1
-        rightQuestions++
+        rightQuestions++;
 
         // wenn nicht 
     } else {
@@ -195,9 +195,6 @@ function answer(selection) {
     document.getElementById('next-btn').disabled = false;
 };
 
-function rightAnswerSelected(selectedQuestionNumber) {
-    return selectedQuestionNumber == question['right_answer']
-}
 
 function nextQuestion() {
 
