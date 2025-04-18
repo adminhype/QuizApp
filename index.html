@@ -33,20 +33,18 @@
         </nav>
         <div class="container">
             <div class="card quiz-card">
-                <img src="img/quiz.jpg" class="card-img-top" alt="..." />
+                <!-- quiz img ersetzen wenn quiz beendet wurde quiz background entfernt -->
+                <img
+                    src="img/quiz.jpg"
+                    id="head-content-img"
+                    class="card-img-top"
+                    alt="..."
+                />
 
                 <!-- end-screen step 1 with step 2 step 3 display none-->
                 <div class="card-body" id="endScreen" style="display: none">
                     <!-- generische klassen hinzufügen  -->
-                    <div class="text-center">Quit beendet</div>
-
-                    <div>
-                        <img
-                            class="width-100"
-                            src="./img/quiz-background.png"
-                            alt=""
-                        />
-                    </div>
+                    <div class="text-center styling-headline">Quit beendet</div>
 
                     <div class="text-center">
                         Du hast <b id="currentRightQuestion">xx</b> fragen von

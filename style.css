@@ -54,3 +54,7 @@ body {
 .text-center {
     text-align: center;
 }
+.styling-headline {
+    font-size: 32px;
+    margin-bottom: 32px;
+}

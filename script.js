@@ -89,6 +89,10 @@ function showQuestion() {
         // step 2 variable erstellen 
         document.getElementById('currentRightQuestion').innerHTML = rightQuestions;
 
+        // quiz img ersetzt mit quiz background .src 
+        document.getElementById('head-content-img').src = './img/quiz-background.png';
+
+
     } else {
         //greift auf die aktuelle frage aus dem array 
         let question = questions[currentQuestion];
