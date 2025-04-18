@@ -60,6 +60,8 @@ const questions = [
 // zeigt den ersten objekt im array
 let currentQuestion = 0;
 
+let rightQuestions = 0;
+
 // funktion erstellt zum inititalisieren b tag id all-question zugegriffen + die länge des arrays angegeben
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
@@ -79,6 +81,14 @@ function showQuestion() {
         // take step 1,2,3 from html & show quiz beendet after click last question
         document.getElementById('endScreen').style = '';
         document.getElementById('questionBody').style = 'display: none';
+
+        // wie viele fragen wurden beantwortet
+        document.getElementById('amountOfQuestions').innerHTML = questions.length;
+
+        // wie viele fragen wurden richtig beantwortet step 1
+        // step 2 variable erstellen 
+        document.getElementById('currentRightQuestion').innerHTML = rightQuestions;
+
     } else {
         //greift auf die aktuelle frage aus dem array 
         let question = questions[currentQuestion];
@@ -127,6 +137,10 @@ function answer(selection) {
         // button wird grün wenn die antwort richtig ist / selber parameter
         // css classe hinzufügen mit classList.add mit string
         document.getElementById(selection).classList.add('bg-success');
+
+        // wenn right answer true ist erhöhen wir currentrightquestion um 1
+        rightQuestions++
+
         // wenn nicht 
     } else {
         // console.log('Falsche Antwort');
