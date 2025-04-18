@@ -71,13 +71,12 @@ function init() {
     showQuestion();
 };
 
-
 // zeigt die aktuelle frage und antwort in html an
 function showQuestion() {
 
     // zähler ab 7 frage abbrechen ( end-screen)
     if (currentQuestion >= questions.length) {
-        // todo: show end screen
+        // show end screen
         // take step 1,2,3 from html & show quiz beendet after click last question
         document.getElementById('endScreen').style = '';
         document.getElementById('questionBody').style = 'display: none';
@@ -92,8 +91,24 @@ function showQuestion() {
         // quiz img ersetzt mit quiz background .src 
         document.getElementById('head-content-img').src = './img/quiz-background.png';
 
+    } else { //show question
 
-    } else {
+        // prozentausrechnen
+
+        let percent = (currentQuestion + 1) / questions.length;
+        // ausgerechnete zahl aufrunden mit  math.round
+        percent = Math.round(percent * 100);
+        console.log('fortschrit:', percent);
+
+        // die zahl die ausgrechnet wurde in bar anzeigen lassen 14.234234%
+        document.getElementById('progress-bar-id').innerHTML = `${percent} %`;
+        // progresbar balken schicker ausehenlassen mit % 
+        document.getElementById('progress-bar-id').style = `width: ${percent}%`;
+
+
+
+
+
         //greift auf die aktuelle frage aus dem array 
         let question = questions[currentQuestion];
 
@@ -106,7 +121,6 @@ function showQuestion() {
         document.getElementById('answer_2').innerHTML = question['answer_2']
         document.getElementById('answer_3').innerHTML = question['answer_3']
         document.getElementById('answer_4').innerHTML = question['answer_4']
-
     }
 
 
