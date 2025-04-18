@@ -72,18 +72,30 @@ function init() {
 
 // zeigt die aktuelle frage und antwort in html an
 function showQuestion() {
-    //greift auf die aktuelle frage aus dem array 
-    let question = questions[currentQuestion];
 
-    //greifen auf die id questiontext + schreiben text der frage in dieses html aus dem frage object
-    document.getElementById('questionText').innerHTML = question['question']
+    // zähler ab 7 frage abbrechen ( end-screen)
+    if (currentQuestion >= questions.length) {
+        // todo: show end screen
+        // take step 1,2,3 from html & show quiz beendet after click last question
+        document.getElementById('endScreen').style = '';
+        document.getElementById('questionBody').style = 'display: none';
+    } else {
+        //greift auf die aktuelle frage aus dem array 
+        let question = questions[currentQuestion];
 
-    // id anwser aus html ziehen + in object attribute zuweisen zur jeder id in html
-    // suchen 4 html elemente mit ids + schreiben die antwort aus dem frage objekt
-    document.getElementById('answer_1').innerHTML = question['answer_1']
-    document.getElementById('answer_2').innerHTML = question['answer_2']
-    document.getElementById('answer_3').innerHTML = question['answer_3']
-    document.getElementById('answer_4').innerHTML = question['answer_4']
+        //greifen auf die id questiontext + schreiben text der frage in dieses html aus dem frage object
+        document.getElementById('questionText').innerHTML = question['question']
+
+        // id anwser aus html ziehen + in object attribute zuweisen zur jeder id in html
+        // suchen 4 html elemente mit ids + schreiben die antwort aus dem frage objekt
+        document.getElementById('answer_1').innerHTML = question['answer_1']
+        document.getElementById('answer_2').innerHTML = question['answer_2']
+        document.getElementById('answer_3').innerHTML = question['answer_3']
+        document.getElementById('answer_4').innerHTML = question['answer_4']
+
+    }
+
+
 };
 // herausfinden beim clicken auf button richtig oder falsch 
 // function wird aufgerufen wenn eine antwort ausgewählt wurde der parameter ist die id der angeklickten antwort
