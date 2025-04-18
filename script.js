@@ -63,6 +63,9 @@ let currentQuestion = 0;
 // erhöht antwort um 1
 let rightQuestions = 0;
 
+let SUCCES_AUDIO = new Audio('sounds/rightanswer.mp3');
+let FAIL_AUDIO = new Audio('sounds/wronganswer.mp3');
+
 // funktion erstellt zum inititalisieren b tag id all-question zugegriffen + die länge des arrays angegeben
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
@@ -157,6 +160,10 @@ function answer(selection) {
         // css classe hinzufügen mit classList.add mit string
         document.getElementById(selection).classList.add('bg-success');
 
+        // wenn richtige antwort sound aus globale variable
+
+        SUCCES_AUDIO.play();
+
         // wenn right answer true ist erhöhen wir currentrightquestion um 1
         rightQuestions++
 
@@ -165,10 +172,11 @@ function answer(selection) {
         // console.log('Falsche Antwort');
         // button wird rot wenn die antwort falsch ist /
         document.getElementById(selection).classList.add('bg-danger')
-
         // falls falsche antwort ausgabe grün makriert für richtige anwort weil zuvor falsche antwort
         document.getElementById(idOfRightAnswer).classList.add('bg-success')
 
+        //falsche antwort sound aus variable 
+        FAIL_AUDIO.play();
     }
     // button disable aktivieren
     document.getElementById('next-btn').disabled = false;
